@@ -39,8 +39,8 @@ namespace WebApplicationSAmpleExam.Controllers
         // GET: Attendances/Create
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName");
-            ViewBag.SubjectID = new SelectList(db.Subjects, "SubjectID", "SubjectName");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "StudentID");
+            ViewBag.SubjectID = new SelectList(db.Subjects, "SubjectID", "SubjectID");
             return View();
         }
 
@@ -58,8 +58,8 @@ namespace WebApplicationSAmpleExam.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", attendance.StudentID);
-            ViewBag.SubjectID = new SelectList(db.Subjects, "SubjectID", "SubjectName", attendance.SubjectID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "StudentID", attendance.StudentID);
+            ViewBag.SubjectID = new SelectList(db.Subjects, "SubjectID", "SubjectID", attendance.SubjectID);
             return View(attendance);
         }
 
@@ -75,8 +75,8 @@ namespace WebApplicationSAmpleExam.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", attendance.StudentID);
-            ViewBag.SubjectID = new SelectList(db.Subjects, "SubjectID", "SubjectName", attendance.SubjectID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "StudentID", attendance.StudentID);
+            ViewBag.SubjectID = new SelectList(db.Subjects, "SubjectID", "SubjectID", attendance.SubjectID);
             return View(attendance);
         }
 
@@ -93,8 +93,8 @@ namespace WebApplicationSAmpleExam.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", attendance.StudentID);
-            ViewBag.SubjectID = new SelectList(db.Subjects, "SubjectID", "SubjectName", attendance.SubjectID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "StudentID", attendance.StudentID);
+            ViewBag.SubjectID = new SelectList(db.Subjects, "SubjectID", "SubjectID", attendance.SubjectID);
             return View(attendance);
         }
 
