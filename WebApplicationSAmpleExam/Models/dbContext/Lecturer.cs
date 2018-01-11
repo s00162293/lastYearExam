@@ -16,7 +16,8 @@ namespace WebApplicationSAmpleExam.Models.dbContext
         public int LecturerID { get; set; }
 
         public string LecturerName { get; set; }
-
         public virtual ICollection<Subject> subjects { get; set; }
+
+        ////
     }
 }
