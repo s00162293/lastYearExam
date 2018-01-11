@@ -15,8 +15,28 @@ namespace WebApplicationSAmpleExam.Controllers
         private AttendDbContext db = new AttendDbContext();
 
         // GET: Students
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
+         
+            ViewBag.FirstNameSortParm = String.IsNullOrEmpty(sortOrder) ? "secondName_desc" : "";
+            ViewBag.SecondNameSortParm = sortOrder == "firstName" ? "firstName_desc" : "firstName";
+            var students = from s in db.Students
+                           select s;
+            switch (sortOrder)
+            {
+                case "secondName_desc":
+                    students = students.OrderByDescending(s => s.SecondName);
+                    break;
+                case "firstName":
+                    students = students.OrderBy(s => s.FirstName);
+                    break;
+                case "firstName_desc":
+                    students = students.OrderByDescending(s => s.FirstName);
+                    break;
+                default:
+                    students = students.OrderBy(s => s.SecondName);
+                    break;
+            }
             return View(db.Students.ToList());
         }
 
